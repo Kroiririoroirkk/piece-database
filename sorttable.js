@@ -166,7 +166,7 @@ sorttable = {
   guessType: function(table, column) {
     // guess the type of a column based on its first non-blank row
     
-    return table.tHead.children[column].attributes.getNamedItem("datatype") == "text" ? sorttable.sort_alpha : sorttable.sort_numeric;
+    return table.tHead.children.item(column).attributes.getNamedItem("datatype") == "text" ? sorttable.sort_alpha : sorttable.sort_numeric;
     /*sortfn = sorttable.sort_alpha;
     for (var i=0; i<table.tBodies[0].rows.length; i++) {
       text = sorttable.getInnerText(table.tBodies[0].rows[i].cells[column]);
