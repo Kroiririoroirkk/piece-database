@@ -165,8 +165,10 @@ sorttable = {
 
   guessType: function(table, column) {
     // guess the type of a column based on its first non-blank row
-    
-    return table.tHead.getElementsByTagName("tr").getElementsByTagName("th").item(column).attributes.getNamedItem("datatype") == "text" ? sorttable.sort_alpha : sorttable.sort_numeric;
+    var head = table.tHead;
+    var tablerow = head.getElementsByTagName("tr")[0];
+    var header = tablerow.getElementsByTagName("th")[column];
+    return header.attributes.getNamedItem("datatype") == "text" ? sorttable.sort_alpha : sorttable.sort_numeric;
     /*sortfn = sorttable.sort_alpha;
     for (var i=0; i<table.tBodies[0].rows.length; i++) {
       text = sorttable.getInnerText(table.tBodies[0].rows[i].cells[column]);
